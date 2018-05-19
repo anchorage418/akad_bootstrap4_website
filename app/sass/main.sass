@@ -1,0 +1,294 @@
+@import "_custom.sass"
+@import "../libs/scss/bootstrap-reboot.scss"
+@import "../libs/scss/_utilities.scss"
+@import "../libs/scss/_grid.scss"
+@import "../libs/scss/_type.scss"
+@import "../libs/scss/_transitions.scss"
+@import "../libs/scss/_images.scss"
+@import "../libs/scss/_forms.scss"
+@import "../libs/scss/_carousel.scss"
+@import "../libs/scss/_card.scss"
+
+/* ***Mixins***  */
+
+@mixin text-pattern($color: #000, $f-size: 16px, $f-family: $main-text, $l-height: initial)
+  color: $color
+  font-size: $f-size
+  font-family: $f-family
+  line-height: $l-height
+
+@mixin btn-pattern($f-size: initail, $color: initail, $bg-color: initial, $width: initail, $padding: initail)
+  font-size: $f-size
+  color: $color
+  background-color: $bg-color
+  width: $width
+  padding: $padding
+
+body
+  min-width: 320px
+
+a
+  @include text-pattern($main-color, 18px, $text-head)
+  &:hover
+    color: #000
+    text-decoration: none
+
+button
+  display: block
+  background-color: transparent
+  border: none
+  cursor: pointer
+
+.img
+  width: 100%
+  height: auto
+
+.btn-cyan
+  @include btn-pattern(14px, $white, $secondary-color, 165px, 14px)
+  &:hover
+    background-color: $dark-secondary-color
+    color: $white
+
+.btn-white
+  @include btn-pattern(14px, $secondary-color, $white, 165px, 14px)
+  &:hover
+    background-color: $dark-secondary-color
+    color: $white
+
+.btn-submit
+  @include btn-pattern(14px, $white, $secondary-color, 34%, 14px)
+  &:hover
+    background-color: $dark-secondary-color
+    color: $white
+
+.text-color-white
+  color: $white
+
+.page-header
+  padding: 40px 0
+
+.main-bg-img
+  &[data-page="primary"]
+    background: #fff url(../img/bg_main.png) center top/100% 750px no-repeat
+  &[data-page="secondary"]
+    background: #fff url(../img/bg_secondary.png) center top/cover no-repeat
+
+.btn-menu
+  width: 33px
+  height: 17px
+  background: url(../img/menu_btn.png) center/cover
+  cursor: pointer
+  &:focus
+    outline: unset;
+
+.main-nav-item
+  a
+    display: block
+    padding: 16px
+    &:hover
+      background-color: $dark-secondary-color
+      color: $white
+
+.section
+  padding: 40px 0
+
+.jumbo
+  @include text-pattern($main-color, $f-family: $text-head)
+  div
+    &:nth-child(1)
+      width: 98px
+      margin: auto
+      font-size: 18px
+      background-color: $secondary-color
+    &:nth-child(2)
+      display: block
+      padding: 8px
+  h1
+    margin-bottom: 0
+    font-size: 48px
+    @media (max-width: 768px)
+      font-size: 32px
+  .border
+    border: 10px solid $main-color
+
+.atricle-header-block
+  @include text-pattern($main-color, 36px, $f-family: $text-head)
+  padding: 125px 0;
+  p
+    font-size: 14px
+
+.short-article-text
+  @include text-pattern($main-color, 14px, $main-text, 1.5)
+
+.article-text
+  @include text-pattern($main-color, 14px, $main-text, 2)
+
+h2
+  @include text-pattern($main-color, 30px, $text-head)
+  span
+    position: relative
+    z-index: 0
+    &:after
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 50%
+      z-index: -1
+      width: 68px
+      height: 21px
+      background-color: $secondary-color
+
+h3
+  @include text-pattern($main-color, 18px, $text-head)
+
+.services-list,
+.category-list
+  list-style-type: none
+  padding-left: 0
+
+.services-list-item
+  font-size: 14px
+  font-family: $main-text
+  color: $main-light-color
+  margin-bottom: 10px
+
+.side-menu
+.side-menu-header
+  font-size: 30px
+  color: $main-color
+  margin-bottom: 34px
+  @media (max-width: 768px)
+    font-size: 24px
+.side-menu-item
+  @include text-pattern($main-color, 14px, $text-head)
+  @media (max-width: 576px)
+    font-size: 18px
+.side-menu-btn
+  padding: 0 20px
+  color: $main-color
+  text-align: left
+  &:hover,
+  &:focus
+    @include btn-pattern($color: $white, $bg-color: $secondary-color)
+    outline: none
+
+.gallery-col
+  img
+    padding: 15px 0
+
+.form-block
+  padding: 15px
+  @media (max-width: 768px)
+    margin-top: 20px
+  h2
+    font-size: 24px
+  p
+    @include text-pattern($main-color, 16px, $main-text, 1.5)
+
+.input-container
+  display: flex
+  height: 48px
+  input
+    border: 1px solid $light-grey
+    height: 100%
+    width: 100%
+    padding: 20px
+    @include text-pattern($grey, 12px, $text-head)
+    font-weight: bold
+
+.footer-nav 
+  @media (max-width: 576px)
+    display: flex
+    flex-direction: column
+    text-align: center
+
+.footer,
+.footer-nav-item
+  @include text-pattern($main-light-color, 14px, $main-text)
+
+.footer-nav-item
+  padding: 10px 0 
+
+.social-link
+  svg
+    color: $mid-grey
+    transition: .25s
+    &:hover
+      transform: scale(2,2)  
+  @media (max-width: 768px)
+    font-size: 38px
+
+.carousel-indicators
+  position: static
+  margin-top: 32px
+  li
+    width: 16px
+    height: 6px
+    background-color: $main-color
+  .active
+    width: 30px
+    background-color: $secondary-color
+
+.carousel-item.active,
+.carousel-item-next,
+.carousel-item-prev
+    display: flex
+    justify-content: center
+    flex-direction: column
+
+.fa-check-square
+  color: $secondary-color
+
+
+.benefits-ico
+  img
+    width: 100%
+  width: 36px
+  height: 36px
+  display: flex
+  align-items: end
+  margin-bottom: 10px
+
+.card
+  border: none;
+  border-radius: 0
+  border-top: 5px solid $secondary-color
+  transition: .3s
+  &:after
+    content: url(../img/corner_pic.png)
+    position: absolute
+    top: -5px
+    right: 0
+  &:hover
+    transform: scale(1.1)
+    box-shadow: 0px 0px 30px -12px rgba(77,77,77,1);
+
+.form-control
+  background-color: #fefcf9
+  margin-bottom: 30px
+  border-radius: 0
+  @include text-pattern($grey, 12px, $text-head) 
+  &:focus
+    @include text-pattern($grey, 12px, $text-head) 
+  &::placeholder
+    color: $grey
+input
+  .form-control  
+  height: 48px
+
+.form-row
+  margin-right: -15px;
+  margin-left: -15px;
+
+  > .col,
+  > [class*="col-"]
+    padding-right: 15px;
+    padding-left: 15px;
+
+.embed-map
+  height: 846px
+  width: 100%
+  max-width: 100%
+  @media (max-width: 992px)
+    height: 360px
